@@ -1,20 +1,21 @@
 package academy.belhard.db;
 
+import academy.belhard.db.creds.DbCredentialsProvider;
+import academy.belhard.db.creds.LocalDbCredsProvider;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionUtil {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/students_db?useUnicode=true&serverTimezone=UTC";
-    public static final String USER = "root";
-    public static final String PASS = "root";
+    private static DbCredentialsProvider credentialsProvider = new LocalDbCredsProvider();
 
     public static Connection getConnection() {
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection(URL, USER, PASS);
+            connection = DriverManager.getConnection(credentialsProvider.getUrl(), credentialsProvider.getUser(), credentialsProvider.getPassword());
         } catch (SQLException e) {
             e.printStackTrace();
         }

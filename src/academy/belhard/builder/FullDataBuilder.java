@@ -5,7 +5,7 @@ import academy.belhard.entity.FullData;
 public class FullDataBuilder {
 
     public static String objectToString(FullData item) {
-        return String.join(";",
+        return String.join(CsvConstants.CSV_DELIMITER,
                 Integer.toString(item.getId()),
                 item.getFirstName(),
                 item.getLastName(),

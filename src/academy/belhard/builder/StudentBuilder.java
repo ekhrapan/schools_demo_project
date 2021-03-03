@@ -6,7 +6,7 @@ import academy.belhard.validator.StudentValidator;
 public class StudentBuilder {
 
     public static Student build(String schoolLine) {
-        String[] schoolData = schoolLine.split(";");
+        String[] schoolData = schoolLine.split(CsvConstants.CSV_DELIMITER);
 
         int id = Integer.parseInt(schoolData[0]);
         String firstName = schoolData[1];

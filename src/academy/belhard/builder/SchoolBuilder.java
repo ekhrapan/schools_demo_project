@@ -5,7 +5,7 @@ import academy.belhard.entity.School;
 public class SchoolBuilder {
 
     public static School build(String schoolLine) {
-        String[] schoolData = schoolLine.split(";");
+        String[] schoolData = schoolLine.split(CsvConstants.CSV_DELIMITER);
 
         int id = Integer.parseInt(schoolData[0]);
         String name = schoolData[1];
